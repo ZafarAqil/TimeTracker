@@ -1,2 +1,3 @@
 # TimeTracker
-A time management web application for employee as well as manager made using NodeJS as a backend
+
+A time management web application for employees as well as managers made using NodeJS as a backend
