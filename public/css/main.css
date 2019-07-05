@@ -1,5 +1,22 @@
+body {
+  background-image: linear-gradient(to right, #007bff, #2fe7c1);
+}
 .navbar {
-  -webkit-box-shadow: 0 8px 6px -6px #999;
-  -moz-box-shadow: 0 8px 6px -6px #999;
-  box-shadow: 0 4px 6px -2px #999;
+  -webkit-box-shadow: 0 1px 4px -2px #999;
+  -moz-box-shadow: 0 2px 4px -2px #999;
+  box-shadow: 0 2px 4px -2px rgb(117, 117, 117);
+}
+
+.jumbotron {
+  /* text-align: justify; */
+  margin-top: 3rem;
+  /* background-image: url("../images/jumbotron.jpg"); */
+  background-color: transparent !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 2em;
+}
+.jumbotron .btn {
+  margin: auto;
+  display: table;
 }
