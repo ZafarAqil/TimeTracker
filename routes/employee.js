@@ -6,7 +6,7 @@ const employeeController = require("../controllers/employee");
 
 router.get("/", employeeController.getIndex); //for homepage
 
-router.get("/add-tasks"); //to view project tasks list
+router.get("/add-tasks", employeeController.getTasks); //to view project tasks list
 
 router.post("/add-tasks"); //to add project tasks
 
