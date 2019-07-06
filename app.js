@@ -8,7 +8,14 @@ const MongoDBStore = require("connect-mongodb-session")(session);
 const csrf = require("csurf");
 const flash = require("connect-flash");
 
+const errorController = require("./controllers/error");
+
 const app = express();
+const port = process.env.PORT || 3000;
+
+require("dotenv").config();
+
+const MONGODB_URI = process.env.MONGODB_URI;
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -24,6 +31,19 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(employeeRoutes);
 app.use(authRoutes);
 
-app.listen(3000, () => {
-  console.log("connected!");
-});
+// app.listen(3000, () => {
+//   console.log("connected!");
+// });
+
+app.use(errorController.get404);
+
+mongoose
+  .connect(MONGODB_URI, { useNewUrlParser: true })
+  .then(result => {
+    app.listen(port, () => {
+      console.log("connected!");
+    });
+  })
+  .catch(err => {
+    console.log(err);
+  });

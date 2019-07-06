@@ -10,7 +10,7 @@ router.post("/signin");
 
 router.get("/signup", authController.getSignUp);
 
-router.post("/signup");
+router.post("/signup", authController.postSignUp);
 
 router.post("/signout");
 
