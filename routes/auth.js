@@ -6,12 +6,12 @@ const authController = require("../controllers/auth");
 
 router.get("/signin", authController.getSignIn);
 
-router.post("/signin");
+router.post("/signin", authController.postSignIn);
 
 router.get("/signup", authController.getSignUp);
 
 router.post("/signup", authController.postSignUp);
 
-router.post("/signout");
+router.post("/signout", authController.postSignOut);
 
 module.exports = router;

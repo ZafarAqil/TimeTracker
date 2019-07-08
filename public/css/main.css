@@ -4,3 +4,11 @@
   box-shadow: 0 2px 4px -2px rgb(117, 117, 117);
   background-image: linear-gradient(to right, #007bff, #2fe7c1);
 }
+
+.btn {
+  margin-left: 5px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  font-size: 20px;
+}
