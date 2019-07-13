@@ -8,10 +8,12 @@
     <div class="container text-white">
         <div class="jumbotron">
             <h1 class="display-4">Welcome to TimeTracker v1.0</h1>
-            <p class="lead">This is a simple web application made using Nodejs, ExpressJS and MongoDB which helps you to
+            <p class="lead">This is a simple web application made using Nodejs, ExpressJS and MongoDB which will help
+                you to
                 track the remaining tasks and assign an estimated time to it.</p>
             <hr class="my-3">
-            <p>It can be used by both employees and managers. Additionally the manager of the project can also export
+            <p>It can be used by both employees as well as managers. Additionally, the manager of the project can also
+                export
                 all the tasks to a CSV file for further references!</p>
             <% if (!isAuthenticated) { %>
             <a class="btn btn-primary btn-lg" href="/signup" role="button">Sign Up</a>

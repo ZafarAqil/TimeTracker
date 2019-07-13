@@ -9,10 +9,10 @@ router.get("/", employeeController.getIndex); //for homepage
 
 router.get("/add-tasks", isAuth, employeeController.getTasks); //to view project tasks list
 
-router.post("/add-tasks"); //to add project tasks
+router.post("/add-tasks", isAuth, employeeController.postTasks);
 
 router.post("/edit-task"); //to edit a task
 
-router.post("/delete-task"); //to delete a task
+router.post("/delete-task", isAuth, employeeController.postDeleteProduct); //to delete a task
 
 module.exports = router;

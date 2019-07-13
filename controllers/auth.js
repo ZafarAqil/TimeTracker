@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
+const Task = require("../models/task");
 
 exports.getSignIn = (req, res, next) => {
   res.render("auth/signin", {
@@ -57,7 +58,8 @@ exports.postSignUp = (req, res, next) => {
             name: name,
             email: email,
             password: hashedPassword,
-            department: department
+            department: department,
+            tasks: []
           });
           return user.save();
         })

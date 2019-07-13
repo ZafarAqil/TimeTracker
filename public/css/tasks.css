@@ -1,0 +1,16 @@
+.row {
+  padding-top: 2rem;
+}
+
+.btn {
+  margin-top: 0px;
+}
+.data {
+  margin-bottom: 3rem;
+}
+.card {
+  /* min-height: 10px; */
+}
+.delete {
+  margin-top: 10px;
+}

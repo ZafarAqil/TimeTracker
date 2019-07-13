@@ -1,9 +1,83 @@
 <%- include('../includes/head.ejs') %>
 <link rel="stylesheet" href="/css/homepage.css">
+<link rel="stylesheet" href="/css/tasks.css">
 </head>
 
 <body>
     <%- include('../includes/navigation.ejs') %>
 
+    <div class="container data">
+        <form action="/add-tasks" method="POST">
+            <div class="row">
+                <div class="col-5">
+                    <div class="form-group">
+                        <div>
+                            <input class="form-control form-control-lg" type="text" name="title"
+                                placeholder="Add Tasks">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <div>
+                            <input class="form-control form-control-lg" type="date" name="date">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <div>
+                            <input class="form-control form-control-lg" type="number" step=".1" name="time"
+                                placeholder="Duration">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-warning btn-lg">Add Task</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <% if (task.length > 0) { %>
+        <% for (let tasks of task) { %>
+        <div class="row">
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-body">
+                        <%= tasks.title %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <%= tasks.date.toDateString() %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="card">
+                    <div class="card-body">
+                        <%= tasks.time %> Hours
+                        <!-- <% if (tasks.time >=1 ) { %> Hours <% } else { %> Minutes <% } %> -->
+                    </div>
+                </div>
+            </div>
+            <form action="/delete-task" method="POST">
+                <div class="col-2 delete">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-danger btn-lg">Delete</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <% } %>
+        <% } else { %>
+        <h1>No tasks added yet!</h1>
+        <% } %>
+    </div>
+    </div>
 
     <%- include('../includes/end.ejs') %>
