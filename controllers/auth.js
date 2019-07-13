@@ -3,8 +3,15 @@ const User = require("../models/user");
 const Task = require("../models/task");
 
 exports.getSignIn = (req, res, next) => {
+  let message = req.flash("error");
+  if (message.length > 0) {
+    message = message[0];
+  } else {
+    message = null;
+  }
   res.render("auth/signin", {
-    isAuthenticated: req.session.isLoggedIn
+    isAuthenticated: req.session.isLoggedIn,
+    errorMessage: message
   });
 };
 
@@ -14,6 +21,7 @@ exports.postSignIn = (req, res, next) => {
   User.findOne({ email: email })
     .then(user => {
       if (!user) {
+        req.flash("error", "Invalid email or password.");
         return res.redirect("/signin");
       }
       bcrypt
@@ -27,6 +35,7 @@ exports.postSignIn = (req, res, next) => {
               res.redirect("/");
             });
           }
+          req.flash("error", "Invalid email or password.");
           res.redirect("/signin");
         })
         .catch(err => {
@@ -38,7 +47,16 @@ exports.postSignIn = (req, res, next) => {
 };
 
 exports.getSignUp = (req, res, next) => {
-  res.render("auth/signup", { isAuthenticated: req.session.isLoggedIn });
+  let message = req.flash("error");
+  if (message.length > 0) {
+    message = message[0];
+  } else {
+    message = null;
+  }
+  res.render("auth/signup", {
+    isAuthenticated: req.session.isLoggedIn,
+    errorMessage: message
+  });
 };
 
 exports.postSignUp = (req, res, next) => {
@@ -49,6 +67,7 @@ exports.postSignUp = (req, res, next) => {
   User.findOne({ email: email })
     .then(userDoc => {
       if (userDoc) {
+        req.flash("error", "Email already exist, please pick a different one.");
         return res.redirect("/signin");
       }
       return bcrypt
@@ -79,3 +98,7 @@ exports.postSignOut = (req, res, next) => {
     res.redirect("/");
   });
 };
+
+exports.getAdminSignIn = (req, res, next) => {};
+
+exports.postAdminSignIn = (req, res, next) => {};

@@ -11,7 +11,7 @@ router.get("/add-tasks", isAuth, employeeController.getTasks); //to view project
 
 router.post("/add-tasks", isAuth, employeeController.postTasks);
 
-router.post("/edit-task"); //to edit a task
+// router.post("/edit-task"); // to edit a task
 
 router.post("/delete-task", isAuth, employeeController.postDeleteProduct); //to delete a task
 

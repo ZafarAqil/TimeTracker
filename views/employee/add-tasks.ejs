@@ -9,7 +9,7 @@
     <div class="container data">
         <form action="/add-tasks" method="POST">
             <div class="row">
-                <div class="col-5">
+                <div class="col-md-5">
                     <div class="form-group">
                         <div>
                             <input class="form-control form-control-lg" type="text" name="title"
@@ -17,14 +17,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-md-3">
                     <div class="form-group">
                         <div>
                             <input class="form-control form-control-lg" type="date" name="date">
                         </div>
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-md-2">
                     <div class="form-group">
                         <div>
                             <input class="form-control form-control-lg" type="number" step=".1" name="time"
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-md-2">
                     <div class="form-group">
                         <button type="submit" class="btn btn-warning btn-lg">Add Task</button>
                     </div>
@@ -43,21 +43,21 @@
         <% if (task.length > 0) { %>
         <% for (let tasks of task) { %>
         <div class="row">
-            <div class="col-5">
+            <div class="col-md-5">
                 <div class="card">
                     <div class="card-body">
                         <%= tasks.title %>
                     </div>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
                         <%= tasks.date.toDateString() %>
                     </div>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-md-2">
                 <div class="card">
                     <div class="card-body">
                         <%= tasks.time %> Hours
@@ -67,7 +67,7 @@
             </div>
             <form action="/delete-task" method="POST">
                 <input type="hidden" value="<%= tasks._id %>" name="taskId">
-                <div class="col-2 delete">
+                <div class="col-md-2 delete">
                     <div class="form-group">
                         <button type="submit" class="btn btn-danger btn-lg">Delete</button>
                     </div>
@@ -76,9 +76,8 @@
         </div>
         <% } %>
         <% } else { %>
-        <h1>No tasks added yet!</h1>
+        <p class="display-4"><strong>No Tasks Added Yet!</strong></p>
         <% } %>
-    </div>
     </div>
 
     <%- include('../includes/end.ejs') %>
